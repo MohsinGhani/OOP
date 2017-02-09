@@ -1,0 +1,29 @@
+// ConsoleApplication3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream> 
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	float a, b, c, d, numineter, denominator;
+	std::cout << "Enter the value of a: ";
+	std::cin >> a;
+
+	std::cout << "Enter the value of b: ";
+	std::cin >> b;
+
+	std::cout << "Enter the value of c: ";
+	std::cin >> c;
+
+	std::cout << "Enter the value of d: ";
+	std::cin >> d;
+
+	numineter = (a*d) + (b*c);
+	denominator = (b*d);
+
+	std::cout << "Result: " << numineter << "/" << denominator << '\n';
+	return 0;
