@@ -1,0 +1,25 @@
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	double pound = 1.478;
+	double franc = 0.172;
+	double deutschemark = 0.584;
+	double yen = 0.00955;
+	double dollar = 0;
+
+	std::cout << "Insert the ammount: ";
+	std::cin >> dollar; 
+
+	cout << "The money you converted: " << endl;
+	cout << "Pound= " << dollar / pound << endl << "Franc= " << dollar / franc << endl << "Deutschemark= " << dollar / deutschemark << endl << "Yen= " << dollar / yen << endl;
+	return 0;
+}
+
