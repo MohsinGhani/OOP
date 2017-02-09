@@ -1,0 +1,29 @@
+// conversion.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	float pound, shilling, pence, shillingToPound, penceToPound,result;
+	std::cout << "Enter Ponnds: ";
+	std::cin >> pound;
+
+	std::cout << "Enter shillings: ";
+	std::cin >> shilling;
+
+	std::cout << "Enter pence: ";
+	std::cin >> pence;
+
+	shillingToPound = shilling / 20;
+	penceToPound = (pence / 12) / 20;
+
+	result = pound + shillingToPound + penceToPound;
+	std::cout<< setprecision(3) << "Decimal pounds = " << result << '\n';
+	return 0;
+}
+
