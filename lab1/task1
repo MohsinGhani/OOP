@@ -1,0 +1,20 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	std::cout << "hello world!\n\n";
+	cout << "The size of a boolean is: " << sizeof(bool) << "\n";
+	cout << "The size of a int is: " << sizeof(int) << "\n";
+	cout << "The size of a double is: " << sizeof(double) << "\n";
+	cout << "The size of a char is: " << sizeof(char) << "\n";
+	cout << "The size of a long is: " << sizeof(long) << "\n";
+	cout << "The size of a long double is: " << sizeof(long double) << "\n";
+	cout << "The size of a short is: " << sizeof(short) << "\n";
+	cout << "The size of a floar is: " << sizeof(float) << "\n";
+	return 0;
+}
