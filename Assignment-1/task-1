@@ -1,0 +1,50 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int givenAmount = 5000;
+    int shopingAmount = 273;
+    int returnAmount = givenAmount - shopingAmount;
+
+    int thousand = returnAmount/1000;
+    returnAmount = returnAmount%1000;
+
+    int fivehundred = returnAmount/500;
+    returnAmount = returnAmount%500;
+
+    int hundred = returnAmount/100;
+    returnAmount = returnAmount%100;
+
+    int fifty = returnAmount/50;
+    returnAmount = returnAmount%50;
+
+    int twenty = returnAmount/20;
+    returnAmount = returnAmount%20;
+
+    int ten = returnAmount/10;
+    returnAmount = returnAmount%10;
+
+    int five = returnAmount/5;
+    returnAmount = returnAmount%5;
+
+    int two = returnAmount/2;
+    returnAmount = returnAmount%2;
+
+    int one = returnAmount/1;
+    returnAmount = returnAmount%1;
+
+    cout << "Amount to be returned: Rs." << givenAmount - shopingAmount << "\n";
+    cout << "Denomination Details:\n";
+    if ( thousand ){ cout << thousand << " note(s) of Rs.1000" << "\n"; }
+    if ( fivehundred ){ cout << fivehundred << " note(s) of Rs. 500"  << "\n"; }
+    if ( hundred ){ cout << hundred << " note(s) of Rs. 100"  << "\n"; }
+    if ( fifty ){ cout << fifty << " note(s) of Rs.  40"  << "\n"; }
+    if ( twenty ){ cout << twenty << " note(s) of Rs.  10"  << "\n"; }
+    if ( ten ){ cout << ten << " note(s) of Rs.  10"  << "\n"; }
+    if ( five ){ cout << five << " coin(s) of Rs.   5"  << "\n"; }
+    if ( two ){ cout << two << " coin(s) of Rs.   2"  << "\n"; }
+    if ( one ){ cout << one << " coin(s) of Rs.   1"  << "\n"; }
+    return 0;
+}
