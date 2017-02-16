@@ -1,0 +1,27 @@
+// Question: Write a program that takes input temperature in Centigrade and convert it into Fahrenheit, and then convert it back to centigrade.  Make functions to carry out conversions.  The formula is: F = C * 9 / 5 + 32 Where F is temperature in Fahrenheit, C is the temperature in Centigrade. Example: if C = 25, F would be 77 
+
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+float temp(float c)
+{
+	float F;
+	F = c * 9 / 5 + 32;
+	return(F);
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	float c;
+	cout << "Enter the value of temperature: ";
+	cin >> c;
+	float temperature = temp(c);
+	cout << "Coverted value is: " << temperature << endl;
+	return 0;
+}
