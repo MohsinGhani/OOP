@@ -1,0 +1,44 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+// find grade through if else statement
+/*char findGrade( int marks ){
+	char grade;
+	if (marks > 87 && marks < 100) {
+		grade = 'A';
+	}
+	else if (marks > 72 && marks < 86) {
+		grade = 'B';
+	}
+	else if (marks >= 60 && marks < 71) {
+		grade = 'C';
+	}
+	else if (marks <= 59) {
+		grade = 'F';
+	}
+	return grade;
+}*/
+
+
+// find grade through conditional operator
+char findGrade(int marks){
+	char grade;
+	(marks >= 87 && marks < 100) ? grade = 'A' : (marks >= 72 && marks < 86) ? grade = 'B' : (marks >= 60 && marks < 71) ? grade = 'C' : grade = 'F';
+	return grade;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	
+	int marks;
+	std::cout << "Enter markes: ";
+	std::cin >> marks;
+	cout << "Grade = " << findGrade(marks) << endl;
+	return 0;
+}
+
