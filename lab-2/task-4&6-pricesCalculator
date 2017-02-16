@@ -1,0 +1,55 @@
+//Question4: Consider storing monetary values (prices) as a ‘price’ structure with rupees and paisas stored as separate whole numbers as members of the structure.  The paisa can be between 0 and 99 only.  Create and use functions to add and subtract two prices. 
+//Question6: Implement multiply and divide for the price structure
+
+// ConsoleApplication3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct Price{
+	int rupees;
+	float paisas;
+}price1,price2;
+
+float addPrice(float p1, float p2){
+	float sum = p1 + p2;
+	return sum;
+}
+
+float subtractPrice(float p1, float p2){
+	float sub = p1 - p2;
+	return sub;
+}
+
+float multiplyPrice(float p1, float p2){
+	float mul = p1 * p2;
+	return mul;
+}
+
+float dividePrice(float p1, float p2){
+	float dvd = p1 / p2;
+	return dvd;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout << "Enter Price One: ";
+	cin >> price1.rupees;
+	cin >> price1.paisas;
+	float p1 = price1.rupees + price1.paisas;
+
+	cout << "Enter Price Two: ";
+	cin >> price2.rupees;
+	cin >> price2.paisas;
+	float p2 = price2.rupees + price2.paisas;
+
+	std::cout << "Sum of Price: " << addPrice(p1, p2) << endl;
+	std::cout << "Subtraction of Price: " << subtractPrice(p1, p2) << endl;
+	std::cout << "Multiplication of Price: " << multiplyPrice(p1, p2) << endl;
+	std::cout << "Division of Price: " << dividePrice(p1, p2) << endl;
+	return 0;
+}
+
