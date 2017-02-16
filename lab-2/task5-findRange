@@ -1,0 +1,38 @@
+//Question#5: Make a function to return the range of a list of numbers.  A range is the difference between the largest and smallest number.
+
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int findRange(int numbers[]){
+	int max, min, temp, range;
+	for (int i = 0; i < 5; i++){
+		for (int j = i + 1; j < 5; j++){
+			if (numbers[i] > numbers[j]){
+				temp = numbers[i];
+				numbers[i] = numbers[j];
+				numbers[j] = temp;
+			}
+		}
+	}
+	max = numbers[0];
+	min = numbers[4];
+	range = min - max;
+	return range;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int numbers[5];
+	cout << "Enter five numbers: ";
+	for (int i = 0; i < 5; i++) {
+		cin >> numbers[i];
+	}
+	cout << endl << "Range = " << findRange( numbers ) << endl;
+	return 0;
+}
+
