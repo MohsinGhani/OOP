@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<conio.h>
+  main()
+{
+   int x,y,r,x1,y1,p;
+   printf("\n enter the center of circle x and y");
+   scanf("\n %d%d",&x,&y);
+   printf("\n enter the radius of circle r");
+   scanf("\n %d",&r);
+   printf("\n enter the point x1 and y1");
+   scanf("\n %d%d,&x1,&y1");
+   p=(sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y)));
+   if(p>r)
+{
+   printf("\n point lies out side of the circle =%d",p);
+}
+   else
+{
+   if(p<r)
+{
+   printf("\n point lies inside the circle =%d",p);
+}
+   else
+{
+   printf("\n point lies on the circle",p);
+}
+}
+  return (0);
+}
