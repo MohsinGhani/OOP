@@ -1,0 +1,111 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct date
+{
+	short day;
+	short month;
+	short year;
+};
+
+const char* monthNames[] = { "January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December" };
+
+int monthNum[] = {1,2,3,4,5,6,7,8,9,10,11,12};
+
+const short JANDAYS = 31;
+const short APRILDAYS = 30;
+const short FEBDAYS = 28;
+
+
+bool IsLeapYear(short year)
+{
+	// if year is fully divisible by 400, it is definitely a leap year
+	if (year%400 == 0)
+		return true;
+
+	// if year is fully divisible by 4 AND does not fall at the end of century, it is leap year
+	if (year % 4 == 0 && year % 100 != 0)
+		return true;
+
+	return false;
+}
+
+// returns the total days of a month represented by month member of date struct
+// It is assumed that month and year members of the structure are valid
+short GetDaysInMonth(struct date val)
+{
+	if (val.month == 1 || val.month == 3 || val.month == 5 ||
+		val.month == 7 || val.month == 8 || val.month == 10 ||
+		val.month == 12)
+		return JANDAYS;
+	if (val.month == 4 || val.month == 6 || val.month == 9 ||
+		val.month == 11)
+		return APRILDAYS;
+	if (IsLeapYear(val.year))
+		return FEBDAYS + 1;
+	return FEBDAYS;
+}
+
+// returns true is date is valid, otherwise false
+bool IsValidDate(struct date val)
+{
+	if (val.month < 1 || val.month > 12)
+		return false;
+	if (val.year < 1)
+		return false;
+	if (val.day < 1 || val.day > GetDaysInMonth(val))
+		return false;
+	return true;
+}
+
+// prints the date contained in struct date in the format dd MMMM yyyy
+void PrintDate(struct date val)
+{
+	// TODO: In case the date is not valid, print "Invalid Date"
+	if (!(IsValidDate(val))){
+		cout << "Invalid Date";
+	} else {
+		cout << val.day << " " << monthNames[val.month - 1] << " " << val.year;
+	}
+}
+
+void PrintShortDate(struct date val){
+	cout << val.day << " " << monthNum[val.month - 1] << " " << val.year << endl;
+}
+
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	struct date thisDate;
+	thisDate.day = 21;
+	thisDate.month = 2;
+	thisDate.year = 2017;
+	cout << "The date is: ";
+	PrintDate(thisDate);
+	cout << "\n";
+
+	// making the date invalid
+	thisDate.day = 28;
+
+	cout << "Now the date is: ";
+	PrintDate(thisDate);
+	cout << "\n";
+	//cout << IsLeapYear(2016) << endl;
+	if (IsLeapYear(2016)){
+		cout << "Leap Year\n";
+	}
+	else {
+		cout << "Not a leap Year\n";
+	}
+
+	PrintShortDate(thisDate);
+	return 0;
+}
+
