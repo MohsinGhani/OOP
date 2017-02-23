@@ -1,0 +1,64 @@
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct fraction
+{
+	int numerator;
+	int denominator;
+};
+
+void SimplifyFraction(struct fraction& val)
+{
+	// TODO
+}
+
+// returns the result of addition of two fractions represented by firstFrac and secondFrac
+// Both arguments as well as the return value is of struct fraction type
+struct fraction AddFractions(struct fraction firstFrac, struct fraction secondFrac)
+{
+	struct fraction result;
+	result.numerator = firstFrac.numerator * secondFrac.denominator +
+		firstFrac.denominator * secondFrac.numerator;
+	result.denominator = firstFrac.denominator * secondFrac.denominator;
+	return result;
+}
+
+// subtracts the two fractions
+void SubtractFractions(struct fraction firstFrac, struct fraction secondFrac, struct fraction& resultFrac)
+ {
+	resultFrac.numerator = firstFrac.numerator * secondFrac.denominator - firstFrac.denominator * secondFrac.numerator;
+	resultFrac.denominator = firstFrac.denominator * secondFrac.denominator;
+ }
+
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	struct fraction firstFraction, secondFraction, resultFraction;
+	cout << "Enter first fraction (n/m): ";
+	char dummy;
+	cin >> firstFraction.numerator >> dummy >> firstFraction.denominator;
+
+	cout << "Enter second fraction (n/m): ";
+	cin >> secondFraction.numerator >> dummy >> secondFraction.denominator;
+
+	struct fraction sumFraction = AddFractions(firstFraction, secondFraction);
+	cout << "Sum is: " << sumFraction.numerator << "/" << sumFraction.denominator << endl;
+
+
+	SubtractFractions(firstFraction, secondFraction, resultFraction);
+	cout << "Sub is: " << resultFraction.numerator << "/" << resultFraction.denominator << endl;
+
+	/*struct fraction firstFraction;
+	int a = firstFraction.numerator = 10;
+	int b = firstFraction.denominator = 20;
+	cout << a << "/" << b << endl;*/
+
+	return 0;
+}
+
