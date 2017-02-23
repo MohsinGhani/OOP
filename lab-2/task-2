@@ -1,0 +1,45 @@
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct Date{
+	int day;
+	int month;
+	int year;
+}date;
+
+void printDate() {
+	date.day = 21;
+	date.month = 1;
+	date.year = 2010;
+	cout << "Date: " << date.day << "-" << date.month << "-" << date.year << endl; 
+};
+
+
+bool isLeapYear( int year) {
+	if(year%4 == 0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	printDate();
+	int year;
+	cout << "Enter a Year: ";
+	cin >> year;
+	bool leapYear = isLeapYear(year);
+	if(leapYear) {
+		cout << "It is Leap Year.\n";
+	} else {
+		cout << "It in not a Leap Year.\n";
+	}
+	return 0;
+}
+
