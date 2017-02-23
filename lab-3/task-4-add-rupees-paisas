@@ -9,10 +9,28 @@ using namespace std;
 struct Price{
 	int rupees;
 	int paisas;
-}price1,price2;
+};
+
+void addPrice(struct Price price1,struct Price price2){
+	int rupees = price1.rupees + price2.rupees;
+	int paisas = price1.paisas + price2.paisas;
+	
+	if (rupees >= 100){
+		rupees++;
+		paisas = paisas - 100;
+	}
+	cout << "Add Pride: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
+};
+
+void subPrice(struct Price price1,struct Price price2){
+	int rupees = price1.rupees - price2.rupees;
+	int paisas = price1.paisas - price2.paisas;
+	cout << "Subtract Pride: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
+};
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	struct Price price1,price2;
 	cout << "Enter Rupees 1: ";
 	cin >> price1.rupees;
 	cout << "Enter Paisas 1: ";
@@ -21,14 +39,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	cin >> price2.rupees;
 	cout << "Enter Paisas 2: ";
 	cin >> price2.paisas;
-	
-	int rupeesSum = price1.rupees + price2.rupees;
-	int paisasSum = price1.paisas + price2.paisas;
-	
-	if (paisasSum >= 100){
-		rupeesSum++;
-		paisasSum = paisasSum - 100;
-	}
-	cout << rupeesSum << endl << paisasSum;
+	//call the function which is make for sum and sub prices
+	addPrice( price1, price2);
+	subPrice( price1, price2);	
 	return 0;
 }
