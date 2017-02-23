@@ -1,0 +1,29 @@
+// task3-lab3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+void swap(int &val1, int& val2){
+	int temp;
+	temp = val1;
+	val1 = val2;
+	val2 = temp;
+	
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int val1,val2;
+	cout << "Enter the first value: ";
+	cin >> val1;
+	cout << "Enter the second value: ";
+	cin >> val2;
+
+	swap(val1,val2);
+	cout << "First value = " << val1 << "\nSecond value = " << val2 << endl;
+	return 0;
+}
+
