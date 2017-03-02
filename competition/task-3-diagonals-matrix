@@ -1,0 +1,35 @@
+// task3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int input,sum1 = 0,sum2 = 0,num=3,result;
+	int matrix[3][3];
+	for (int i = 0; i < 3; i++){
+		for (int j = 0; j < 3; j++){
+			cin >> matrix[i][j];
+		}
+	}
+
+	for (int i = 0; i < 3; i++){
+			sum1 = sum1 + matrix[i][i];
+	}
+	for (int i = 0; i < 3; i++){
+			sum2 = sum2 + matrix[i][num-i-1];
+	}
+	result = sum1 - sum2;
+	if (result < 0){
+		cout << (-1)*result << endl;
+	}
+	else{
+		cout << result << endl;
+	}
+	
+	return 0;
+}
+
