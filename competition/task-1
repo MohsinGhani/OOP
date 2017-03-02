@@ -1,0 +1,25 @@
+// Task1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int getNumbers(int num){
+	if(num < 1) {
+		return 0;
+	}
+	getNumbers(num-1);
+	cout << num << endl;
+	return 1;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int num;
+	cin >> num;
+	getNumbers(num);
+	return 0;
+}
+
