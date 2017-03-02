@@ -1,0 +1,72 @@
+// Task2.cpp , Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct Times{
+	int year[10];
+	int month[10];
+	int day[10];
+	int hours[10];
+	int minutes[10];
+	int seconds[10];
+}time1,time2,resultTime;
+
+void addingTime(int totalOperation);
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int totalOperation;
+	cin >> totalOperation;
+	char temp = ':';
+
+	for (int i=0; i<totalOperation; i++){
+		cin >> time1.year[i] >> temp >> time1.month[i] >> temp >> time1.day[i] >> temp >> time1.hours[i] >> temp >> time1.minutes[i] >> temp >> time1.seconds[i];
+		cin >> time2.year[i] >> temp >> time2.month[i] >> temp >> time2.day[i] >> temp >> time2.hours[i] >> temp >> time2.minutes[i] >> temp >> time2.seconds[i];
+	}
+
+	addingTime(totalOperation);
+return 0;
+}
+
+void addingTime(int totalOperation){
+	for (int i=0; i< totalOperation; i++){
+	resultTime.year[i] = time1.year[i] + time2.year[i];
+	resultTime.month[i] = time1.month[i] + time2.month[i];
+	resultTime.day[i] = time1.day[i] + time2.day[i];
+	resultTime.hours[i] = time1.hours[i] + time2.hours[i];
+	resultTime.minutes[i] = time1.minutes[i] + time2.minutes[i];
+	resultTime.seconds[i] = time1.seconds[i] + time2.seconds[i];
+
+	if(resultTime.month[i]>12){
+		resultTime.month[i] = resultTime.month[i]-12; 
+		resultTime.year[i]++;
+	};
+
+	if(resultTime.day[i]>30){
+		resultTime.day[i] = resultTime.day[i]-30; 
+		resultTime.month[i]++;
+	};
+
+	if(resultTime.hours[i]>24){
+		resultTime.hours[i] = resultTime.hours[i]-24; 
+		resultTime.day[i]++;
+	};
+
+	if(resultTime.minutes[i]>60){
+		resultTime.minutes[i] = resultTime.minutes[i]-60; 
+		resultTime.hours[i]++;
+	};
+
+	if(resultTime.seconds[i]>60){
+		resultTime.seconds[i] = resultTime.seconds[i]-60; 
+		resultTime.minutes[i]++;
+	};
+
+	cout << resultTime.year[i] << " : " << resultTime.month[i] << " : "  << resultTime.day[i] << " : "  << resultTime.hours[i] << " : "  << resultTime.minutes[i] << " : "  << resultTime.seconds[i] << endl;
+}
+};
+
