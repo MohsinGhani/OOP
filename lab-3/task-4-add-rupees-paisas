@@ -1,6 +1,9 @@
 // ConsoleApplication4.cpp : Defines the entry point for the console application.
 //
 
+// Task-4.cpp : Defines the entry point for the console application.
+//
+
 #include "stdafx.h"
 #include <iostream>
 
@@ -14,10 +17,10 @@ struct Price{
 void addPrice(struct Price price1,struct Price price2){
 	int rupees = price1.rupees + price2.rupees;
 	int paisas = price1.paisas + price2.paisas;
-	
-	if (rupees >= 100){
-		rupees++;
+
+	if (paisas >= 100){
 		paisas = paisas - 100;
+		++rupees;
 	}
 	cout << "Add Pride: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
 };
@@ -25,6 +28,10 @@ void addPrice(struct Price price1,struct Price price2){
 void subPrice(struct Price price1,struct Price price2){
 	int rupees = price1.rupees - price2.rupees;
 	int paisas = price1.paisas - price2.paisas;
+	if (paisas >= 100){
+		paisas = paisas - 100;
+		++rupees;
+	}
 	cout << "Subtract Pride: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
 };
 
