@@ -1,0 +1,38 @@
+// comp-practice-find point.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct p{
+	int x[15];
+	int y[15];
+}p;
+
+struct q{
+	int x[15];
+	int y[15];
+}q;
+
+struct r{
+	int x[15];
+	int y[15];
+}r;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int input;
+	cin >> input;
+	for(int i=0; i<input; i++){
+	cin >> p.x[i] >> p.y[i] >> q.x[i] >> q.y[i];
+	r.x[i] = 2 * q.x[i] - p.x[i];
+	r.y[i] = 2 * q.y[i] - p.y[i];
+	}
+	for(int i=0; i<input; i++){
+		cout << r.x[i] << " " << r.y[i] << endl;
+	}
+	return 0;
+}
+
