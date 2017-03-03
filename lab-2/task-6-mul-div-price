@@ -1,0 +1,52 @@
+// Task-6.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+struct Price{
+	int rupees;
+	int paisas;
+};
+
+void multiplyPrice(struct Price price1,struct Price price2){
+	int rupees = price1.rupees * price2.rupees;
+	int paisas = price1.paisas * price2.paisas;
+
+	if (paisas >= 100){
+		do{
+			paisas = paisas - 100;
+			++rupees;
+		}while(paisas >= 100);
+	}
+	cout << "Multiply Price: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
+};
+
+void dividePrice(struct Price price1,struct Price price2){
+	int rupees = price1.rupees / price2.rupees;
+	int paisas = price1.paisas / price2.paisas;
+	if (paisas >= 100){
+		paisas = paisas - 100;
+		++rupees;
+	}
+	cout << "Divide Price: Rupees: " << rupees << "\tPaisas: " << paisas << endl;
+};
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	struct Price price1,price2;
+	cout << "Enter Rupees 1: ";
+	cin >> price1.rupees;
+	cout << "Enter Paisas 1: ";
+	cin >> price1.paisas;
+	cout << "Enter Rupees 2: ";
+	cin >> price2.rupees;
+	cout << "Enter Paisas 2: ";
+	cin >> price2.paisas;
+	//call the function which is make for sum and sub prices
+	multiplyPrice( price1, price2);
+	dividePrice( price1, price2);	
+	return 0;
+}
