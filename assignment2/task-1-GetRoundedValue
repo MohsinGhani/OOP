@@ -8,9 +8,9 @@ int GetRoundedValue(int value, unsigned int round);
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int input1, input2;
-	cout << "Enter the orignal value: ";
+	cout << "Enter first input: ";
 	cin >> input1;
-	cout << "Enter the round place Number: ";
+	cout << "Enter second input: ";
 	cin >> input2;
 
 	cout << "Rounded Value = " << GetRoundedValue(input1,input2) << endl;
