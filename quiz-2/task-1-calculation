@@ -1,0 +1,30 @@
+// quiz2-task1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+unsigned int MystryFunction(unsigned int num,unsigned int val)
+{
+	if(num < 10)
+		return (val * 10 + num);
+
+	int temp = num % 10;
+	return ( MystryFunction( num/10, val * 10 + temp) );
+	return 0;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	// for testing various id's 
+	int id;
+	cout << "Enter your id (last numbers): ";
+	cin >> id;
+
+	int regNum = 256 + id % 3;
+	cout << "result = " << MystryFunction(regNum,0) << endl;
+	return 0;
+}
+
