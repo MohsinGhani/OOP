@@ -1,0 +1,24 @@
+// task-1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Time.h"
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	Time newTime(12,00,00,0000);
+	int hour, minutes, seconds, milliseconds;
+	cout << newTime.GetHour() << ":" << newTime.GetMinutes() << ":"  << newTime.GetSeconds() << ":"  << newTime.GetMilliseconds() << endl;
+	//cin >> hour >> minutes >> seconds >> milliseconds;
+	//cout << newTime.anotherTime(hour, minutes, seconds, milliseconds) << endl;
+	cout << "add seconds: ";
+	cin >> seconds;
+	newTime.addSeconds(seconds);
+	cout << newTime.GetHour() << ":" << newTime.GetMinutes() << ":" << newTime.GetSeconds() << ":" << newTime.GetMilliseconds() << endl;
+	return 0;
+}
+
