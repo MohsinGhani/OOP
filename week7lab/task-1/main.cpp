@@ -29,7 +29,6 @@ int main()
 	cout << "Subtract days: ";
 	cin >> sday;
 	date.subDays(sday);
-	cout << "After Subtract Days: ";
 	date.printDate();
 	return 0;
 }
