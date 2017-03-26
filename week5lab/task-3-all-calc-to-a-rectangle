@@ -1,0 +1,28 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+void Rectangle(int h,int w) {
+
+	int perimeter  = (2*w) + (2*h);
+	cout << "Perimeter = " << perimeter << endl;
+
+	double diagonal = sqrt( (h*2) + (w*2) );
+	cout << "Diagonal = " << diagonal << endl;
+
+	int area = h * w;
+	cout << "Area = " << area << endl;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int h,w;
+	cout << "Enter height: ";
+	cin >> h;
+	cout << "Enter width: ";
+	cin >> w;
+	Rectangle(h,w);
+	return 0;
+}
+
