@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int Division(int num,int den){
+	float division = 1;
+	if (num < den) {
+		return 0;
+	}
+	division = division + Division(num-den, den);
+	return division;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int num, den;
+	cout << "Enter tow integers: ";
+	cin >> num >> den;
+	cout << "division of " << num << " and " << den <<" numbers = " << Division(num,den) << endl;
+	return 0;
+}
+
