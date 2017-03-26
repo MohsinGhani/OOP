@@ -1,0 +1,24 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int calcPower(int base,int Power){
+	if(Power == 0){
+		return 1;
+	}
+	if(Power == 1){
+		return base;
+	}
+	return base = base * calcPower(base,Power-1);
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int base, Power;
+	cout << "Enter the base and Poweronent: ";
+	cin >> base >> Power;
+	cout << "Output:  " << calcPower(base,Power) << endl;
+	return 0;
+}
+
