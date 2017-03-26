@@ -1,0 +1,20 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int Perimeter(int w, int h){
+	int result = (2*w) + (2*h);
+	return result;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int width,height;
+	cout << "Enter width and height: ";
+	cin >> width >> height;
+	cout << "output: " << Perimeter(width,height) << endl;
+	return 0;
+}
+
+
