@@ -1,0 +1,19 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+double Diagonal(int w, int h){
+	double diagonal = sqrt( (h*2) + (w*2) );
+	return diagonal;
+};
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int h,w;
+	cout << "Enter Width and Height: ";
+	cin >> w >> h;
+	cout << "Output: " << Diagonal(w,h) << endl;
+	return 0;
+}
+
