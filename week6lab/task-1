@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int CalcFib(int num) {
+	static int usageCount = 0;
+	usageCount++;
+	cout << usageCount << ": CalcFib(" << num << ") called\n";
+	if (num < 2)
+	{
+		cout << usageCount << ": returning " << num << "\n";
+		return num;
+	}
+	cout << usageCount << ": Calling CalcFib(" << num - 1 << ")\n";
+	int result = CalcFib(num - 1);
+	cout << usageCount << ": Calling CalcFib(" << num - 2 << ")\n";
+	result += CalcFib(num - 2);
+	return result;
+}
+int main()
+{
+	int value = 3;
+	int answer = CalcFib(value);
+	cout << "Fibonacci sequence # " << value << " is: " << answer << endl;
+	 return 0;
+}
+
+
