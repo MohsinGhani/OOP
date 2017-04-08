@@ -1,0 +1,35 @@
+.model small
+.stack 100h
+.data
+    MSG_1 EQU 'ENTER THE CHARACTER: $'
+    MSG_2 EQU 0DH,0AH, 'THE GIVIN CHARACTER IS: $'
+    
+    PROMPT_1 DB MSG_1   ;SCREEN PER DISPLAY K LIYE PROMPT KIYA
+    PROMPT_2 DB MSG_2
+    
+.code
+    main proc
+        MOV AX, @DATA       ;initialize DS ;@ MATLAB KISI CHEEZ KO POINT KARNA EX: YAHA DATA KO POINT KAR RAHA HAI
+        MOV DS, AX
+        
+        LEA DX, PROMPT_1    ;load and display prompt_1
+        MOV AH, 09
+        INT 21H ;DO THIS
+        
+        MOV AH, 01           ;read a char    ; USER SE INPUT LY RAHA HAI
+        INT 21H
+                                       
+        MOV BL,AL           ;save the givin char into BL
+        
+        LEA DX, PROMPT_2    ;load and display prompt_2
+        MOV AH, 09
+        INT 21H
+        
+        MOV AH, 02           ;display char
+        MOV DL, BL
+        INT 21H
+        
+        MOV AH, 4CH         ;RETURN CONTROL TO DOS
+        INT 21H
+    MAIN ENDP
+  END MAIN
