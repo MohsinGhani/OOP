@@ -1,0 +1,39 @@
+// Week10Lecture2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{	
+	int size;
+	int* _list;
+	  cin >> size;
+	_list = new int[size];
+	int userInputValue;
+	cout << "Enter Values:" << endl;
+	
+	//get input from user
+	for (int index = 0; index < size; ++index)
+	{
+		cin >> userInputValue;
+		if (!(index < 0 || index >= size))
+			_list[index] = userInputValue;
+	}
+
+	cout << "The list is:" << endl;
+	//display array
+	for (int index = 0; index < size; ++index)
+	{
+		if (!(index < 0 || index >= size))
+			cout << _list[index] << endl;
+	}
+	
+
+    return 0;
+}
+
