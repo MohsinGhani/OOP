@@ -1,0 +1,41 @@
+// task-2-count-words.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int countWords(string src){
+	int counter = 0, size =  src.length(), i = 0;
+	bool lastSpace = true;
+	while(i<size){
+		if(src[i] != 32 && lastSpace)
+			counter++;
+		lastSpace = (src[i] == 32);
+		i++;
+	}
+	return counter;
+}
+
+/*int countWords(string src){
+	int counter = 0, size =  src.length();
+	for(int i=0; i<size; ++i){
+		if(src[i] == ' ')
+			counter++;
+	}
+	return counter+1;
+}*/
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	string src;
+	cout << "Write string: ";
+	getline(cin,src);
+	cout << "words in the string = " << countWords(src) << endl;
+  //cout << "words in the string = " << countWords(src) << endl;
+	return 0;
+}
+
