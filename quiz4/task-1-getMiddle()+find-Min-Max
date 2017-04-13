@@ -1,0 +1,36 @@
+// task-1-findMiddle.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+int getMiddle(int list[], int size){
+	int min = list[0] , max = list[0], middle;
+	for(int i=0; i<size; i++){
+		if(min > list[i]){
+			min = list[i];
+		}
+		if(max < list[i]){
+			max = list[i];
+		}
+	}
+	//cout << "max = " << max << ", min = " << min << endl;  
+	return middle = (min+max)/2;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int size;
+	cout << "Enter the size of list: ";
+	cin >> size;
+	int list[100];
+	for(int i=0; i<size; i++){
+		cout << "Enter Number at " << i+1 << " index: " ;
+		cin >> list[i];
+	}
+	cout << "Middle number = " << getMiddle(list,size) << endl;
+	return 0;
+}
+
