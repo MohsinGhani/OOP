@@ -1,0 +1,49 @@
+// task-2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+//function prototype
+int GetRoundToNearest(int originalValue, unsigned int nearestValue);
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	//declear variable for user input
+	int originalNumber, nearestValue;
+	cout << "Enter the orignal value: ";
+	cin >> originalNumber;
+	cout << "Enter the Nearest Value: ";
+	cin >> nearestValue;
+
+	//if the nearest value is 0 it will be return invalid input otherwise it will run else statement
+	if(!(nearestValue)){
+		cout << "invalid input" << endl;
+	}
+	else{
+		//calling the Get Round To Nearest function
+		cout << "Rounded Value = " << GetRoundToNearest(originalNumber,nearestValue) << endl;
+	}
+	return 0;
+}
+
+int GetRoundToNearest(int originalValue, unsigned int nearestValue){
+	// if the nearest Value is 0 it will be reurn 0
+	if(nearestValue == 0){
+		return 0;
+	}
+
+//calculate the nearest value
+	//if the % of value is less than 5 it will be rounded down otherwise up
+	if(originalValue%nearestValue >=5){
+		originalValue = (originalValue+9)/nearestValue;
+		return originalValue * nearestValue;
+	}
+	originalValue = originalValue/nearestValue;
+	return originalValue = originalValue * nearestValue;
+
+};
+
