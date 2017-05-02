@@ -1,0 +1,60 @@
+// task-1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+//function prototype
+int GetRoundedValue(int originalValue, unsigned int roundToPlace);
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	//declear variable for user input
+	int originalNumber, roundNumber;
+	cout << "Enter the orignal value: ";
+	cin >> originalNumber;
+	cout << "Enter the round place Number: ";
+	cin >> roundNumber;
+
+	//call the GetRoundedValue functon
+	cout << "Rounded Value = " << GetRoundedValue(originalNumber,roundNumber) << endl;
+	return 0;
+}
+
+int GetRoundedValue(int originalValue, unsigned int roundToPlace){
+	//if round place value is 0 it will be return original Value wihout changing
+	if(roundToPlace == 0){
+		return originalValue;
+	}
+	//these conditons check the round value and return the nearest value according to user input.
+	//eg: roundToPlace = 1 it will be nearest 10 and roundToPlace = 2 it will be nearest 100 etc
+	if(roundToPlace == 1){
+		if(originalValue%10 >=5){
+			originalValue = (originalValue+9)/10;
+			return originalValue * 10;
+		}
+		originalValue = originalValue/10;
+		return originalValue = originalValue * 10;
+	}
+	if(roundToPlace == 2){
+		if(originalValue%100 >=50){
+			originalValue = (originalValue+90)/100;
+			return originalValue * 100;
+		}
+		originalValue = originalValue/100;
+		return originalValue = originalValue * 100;
+	}
+	if(roundToPlace == 3){
+		if(originalValue%1000 >=500){
+			originalValue = (originalValue+900)/1000;
+			return originalValue * 1000;
+		}
+		originalValue = originalValue/1000;
+		return originalValue = originalValue * 1000;
+	}
+	return 0;
+};
+
