@@ -1,0 +1,85 @@
+float velocity(float arg1, float arg2, char what){
+	if('v' == what || 'V' == what){
+		float speed = arg1, time = arg2, velocity;
+		// v = s/t
+		return velocity = speed/time;
+	}
+	else if('s' == what || 'S' == what){
+		float velocity = arg1, time = arg2, speed;
+		// s = v * t
+		return speed = velocity * time;
+	}
+	else if('t' == what || 'T' == what){
+		float velocity = arg1, speed = arg2, time;
+		// t = v / s
+		return time = velocity/speed;
+	}
+}
+
+float velocity1(float arg1,float arg2, char what[2]){
+	if("v" == what || "V" == what){
+		float initialVelocity = arg1, finalVelocity = arg2, velocity;
+		// v = vi + vf / 2
+		return velocity = (initialVelocity + finalVelocity)/2;
+	}
+	else if("vi" == what || "Vi" == what || "vI" == what || "VI" == what){
+		float velocity = arg1, finalVelocity = arg2, initialVelocity;
+		// vi = (v - vf) * 2
+		return initialVelocity = (velocity - finalVelocity) * 2;
+	}
+	else if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){
+		float velocity = arg1, initialVelocity = arg2, finalVelocity;
+		//vf = (v - vi) * 2
+		return finalVelocity = (velocity - initialVelocity) * 2;
+	}
+}
+
+float current(float valueOne, float valueTwo, char what){
+	if(what == 'V' || what == 'v'){
+		float _voltage, current  = valueOne, resistance = valueTwo;
+		_voltage = current  * resistance;
+		return _voltage;
+	}
+	else if(what == 'I' || what == 'i'){
+		float _current, voltage = valueOne, resistance  = valueTwo;
+		_current = voltage / resistance ;
+		return _current;
+	}
+	else if(what == 'R' || what == 'r'){
+		float _resistance , voltage = valueOne, current = valueTwo;
+		_resistance  = voltage / current;
+		return _resistance ;
+	}
+	return 0;
+}
+
+float force(float valueOne, float valueTwo, char what){
+	if(what == 'F' || what == 'f'){
+		float _force, mass = valueOne, acceleration = valueTwo;
+		_force = mass * acceleration;
+		return _force;
+	}
+	else if(what == 'A' || what == 'a'){
+		float _acceleration, force = valueOne, mass = valueTwo;
+		_acceleration = force / mass;
+		return _acceleration;
+	}
+	else if(what == 'M' || what == 'm'){
+		float _mass, force = valueOne, acceleration = valueTwo;
+		_mass = force / acceleration;
+		return _mass;
+	}
+	return 0;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout<< "Voltage = " << current(0.2,1000,'v') << endl;
+	cout<< "Current = " << current(110,22000,'i') << endl;
+	cout<< "Resistance  = " << current(220,5,'r') << endl;
+  
+  cout<< "Force = " << force(4,3,'f') << endl;
+	cout<< "Acceleration = " << force(8,2,'a') << endl;
+	cout<< "Mass = " << force(15,3,'m') << endl;
+	return 0;
+}
