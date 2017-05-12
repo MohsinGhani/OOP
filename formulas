@@ -1,4 +1,4 @@
-float velocity(float arg1, float arg2, char what){
+float velocity(float arg1, float arg2, char what){ // Rate of change of displacement
 	if('v' == what || 'V' == what){
 		float speed = arg1, time = arg2, velocity;
 		// v = s/t
@@ -16,7 +16,7 @@ float velocity(float arg1, float arg2, char what){
 	}
 }
 
-float velocity1(float arg1,float arg2, char what[2]){
+float velocity1(float arg1,float arg2, char what[2]){ // Rate of change of displacement
 	if("v" == what || "V" == what){
 		float initialVelocity = arg1, finalVelocity = arg2, velocity;
 		// v = vi + vf / 2
