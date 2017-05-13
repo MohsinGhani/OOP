@@ -1,3 +1,43 @@
+// Velocity = START
+float velocity(float arg1, float arg2, char what){ // Rate of change of displacement
+	if('v' == what || 'V' == what){
+		float speed = arg1, time = arg2, velocity;
+		// v = s/t
+		return velocity = speed/time;
+	}
+	else if('s' == what || 'S' == what){
+		float velocity = arg1, time = arg2, speed;
+		// s = v * t
+		return speed = velocity * time;
+	}
+	else if('t' == what || 'T' == what){
+		float velocity = arg1, speed = arg2, time;
+		// t = v / s
+		return time = velocity/speed;
+	}
+}
+
+float velocity1(float arg1,float arg2, char what[2]){ // Rate of change of displacement
+	if("v" == what || "V" == what){
+		float initialVelocity = arg1, finalVelocity = arg2, velocity;
+		// v = vi + vf / 2
+		return velocity = (initialVelocity + finalVelocity)/2;
+	}
+	else if("vi" == what || "Vi" == what || "vI" == what || "VI" == what){
+		float velocity = arg1, finalVelocity = arg2, initialVelocity;
+		// vi = (v - vf) * 2
+		return initialVelocity = (velocity - finalVelocity) * 2;
+	}
+	else if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){
+		float velocity = arg1, initialVelocity = arg2, finalVelocity;
+		//vf = (v - vi) * 2
+		return finalVelocity = (velocity - initialVelocity) * 2;
+	}
+}
+// Velocity = END
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Acceleration = START
 float acceleration(float arg1, float arg2, char what){ // rate of change on velocity
 	if('A' == what || 'a' == what){
 		float velocity = arg1, time = arg2, acceleration;
@@ -38,42 +78,51 @@ float acceleration1(float arg1,float arg2, float arg3, char what[2] = "a"){ // r
 		return time = acceleration / (finalVelocity - initialVelocity);
 	}
 }
+// Acceleration = END
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
-float velocity(float arg1, float arg2, char what){ // Rate of change of displacement
-	if('v' == what || 'V' == what){
-		float speed = arg1, time = arg2, velocity;
-		// v = s/t
-		return velocity = speed/time;
-	}
-	else if('s' == what || 'S' == what){
-		float velocity = arg1, time = arg2, speed;
-		// s = v * t
-		return speed = velocity * time;
-	}
-	else if('t' == what || 'T' == what){
-		float velocity = arg1, speed = arg2, time;
-		// t = v / s
-		return time = velocity/speed;
-	}
-}
 
-float velocity1(float arg1,float arg2, char what[2]){ // Rate of change of displacement
-	if("v" == what || "V" == what){
-		float initialVelocity = arg1, finalVelocity = arg2, velocity;
-		// v = vi + vf / 2
-		return velocity = (initialVelocity + finalVelocity)/2;
+// Equations of rectilinear motion = START
+float finalVelocity(float arg1, float arg2, float arg3, char what[2] = "vf"){ // acceleration is uniform
+	if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){
+		float initialVelocity = arg1, acceleration = arg2, time = arg3, finalVelocity;
+		//vf = vi + at
+		return finalVelocity = initialVelocity + (acceleration*time);
+	}
+	else if("a" == what || "A" == what){
+		float finalVelocity = arg1, initialVelocity = arg2, time = arg3, acceleration;
+		// a = vf - vi / t
+		return acceleration = (finalVelocity - initialVelocity)/time;
+	}
+	else if("t" == what || "T" == what){
+		float finalVelocity = arg1, initialVelocity = arg2,acceleration = arg3, time;
+		//t = (vf -vi) / a
+		return time = (finalVelocity - initialVelocity)/acceleration;
 	}
 	else if("vi" == what || "Vi" == what || "vI" == what || "VI" == what){
-		float velocity = arg1, finalVelocity = arg2, initialVelocity;
-		// vi = (v - vf) * 2
-		return initialVelocity = (velocity - finalVelocity) * 2;
-	}
-	else if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){
-		float velocity = arg1, initialVelocity = arg2, finalVelocity;
-		//vf = (v - vi) * 2
-		return finalVelocity = (velocity - initialVelocity) * 2;
+		float finalVelocity = arg1, acceleration = arg2, time = arg3, initialVelocity;
+		// vi = vf - at
+		return initialVelocity = finalVelocity - ( acceleration * time );
 	}
 }
+
+float speed(float arg1, float arg2, float arg3, char what[2] = "s"){ //for bodies starting from rest vi = 0
+	if("s" == what || "s" == what){
+		float initialVelocity = arg1, time = arg2, acceleration = arg3, speed;
+		// s = vi.t + 1/2.(a.t^2)
+		return speed = (initialVelocity * time) + (1/2 * (acceleration * pow(time,2)));
+	}
+}
+
+float accelerationSpeed(float arg1, float arg2, float arg3, char what[2] = "a"){
+	if("a" == what || "A" == what){
+		float speed = arg1, finalVelocity = arg2, initialVelocity = arg3, acceleration;
+		return acceleration = (pow(finalVelocity,2) - pow(initialVelocity,2))/ (speed*2);
+	}
+}
+// Equations of rectilinear motion = END
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 float current(float valueOne, float valueTwo, char what){
 	if(what == 'V' || what == 'v'){
@@ -119,8 +168,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout<< "Current = " << current(110,22000,'i') << endl;
 	cout<< "Resistance  = " << current(220,5,'r') << endl;
   
-  cout<< "Force = " << force(4,3,'f') << endl;
+  	cout<< "Force = " << force(4,3,'f') << endl;
 	cout<< "Acceleration = " << force(8,2,'a') << endl;
 	cout<< "Mass = " << force(15,3,'m') << endl;
+	
+	cout << "a = "  << accelerationSpeed(0.25,0,100) << " m/s^2" << endl;
 	return 0;
 }
