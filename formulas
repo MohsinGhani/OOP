@@ -1,3 +1,55 @@
+// Equations of vertical motion = START
+float AvgValOfAcceleration(float arg1, float arg2, char what[2] = "vf"){ // average value of acceleration of free fall, g =  9.8 ms^-2
+	if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){ 
+		float initialVelocity = arg1, time = arg2, finalVelocity, const g = 9.8;
+		//vf = vi + gt
+		return finalVelocity = initialVelocity + ( g * time );
+	}
+	else if("vi" == what || "Vi" == what || "vI" == what || "VI" == what){
+		float finalVelocity = arg1, time = arg2, finalVelocity, const g = 9.8, initialVelocity;
+		// vi = vf - gt
+		return initialVelocity = finalVelocity - ( g * time );
+	}
+	else if("t" == what || "T" == what){
+		float finalVelocity = arg1, initialVelocity = arg2, const g = 9.8, time;
+		//t = (vf -vi) / g
+		return time = (finalVelocity - initialVelocity)/g;
+	}
+}
+
+float DownwardMotion(float arg1, float arg2, char what[2] = "s"){ //g is +ve for downward motion vi = 0
+	if("s" == what || "s" == what){
+		float initialVelocity = arg1, time = arg2, const g = 9.8, speed;
+		// s = vi.t + 1/2.(a.t^2)
+		return speed = (initialVelocity * time) + (1/2 * (g * pow(time,2)));
+	}
+}
+
+float UpwardMotion(float arg1, float arg2,  char what[2] = "s"){ //g is -ve for upward motion vf = 0
+	if("s" == what || "S" == what){
+		float finalVelocity = arg1, initialVelocity = arg2, const g = -9.8, speed;
+		// s = vf^2 - vi^2 / 2*g
+		return speed = (pow(finalVelocity,2) - pow(initialVelocity,2)) / (g*2);
+	}
+}
+
+float MassTimeVelocity(float arg1, float arg2, char what = 'p'){
+	if(what == 'P' || what == 'p'){
+		float p, mass = arg1, velocity = arg2;
+		return p = mass * velocity;
+	}
+	else if(what == 'V' || what == 'v'){
+		float velocity, p = arg1, mass = arg2;
+		return velocity = p / mass;
+	}
+	else if(what == 'M' || what == 'm'){
+		float mass, p = arg1, velocity = arg2;
+		return mass = p / velocity;
+	}
+}
+// Equations of vertical motion = END
+////////////////////////////////////////////////////////////////////////////////////////
+
 // Velocity = START
 float velocity(float arg1, float arg2, char what){ // Rate of change of displacement
 	if('v' == what || 'V' == what){
