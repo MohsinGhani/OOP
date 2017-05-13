@@ -1,3 +1,44 @@
+float acceleration(float arg1, float arg2, char what){ // rate of change on velocity
+	if('A' == what || 'a' == what){
+		float velocity = arg1, time = arg2, acceleration;
+		// a = v/t
+		return acceleration = velocity/time;
+	}
+	else if('s' == what || 'S' == what){
+		float acceleration = arg1, time = arg2, velocity;
+		// v = a * t
+		return velocity = acceleration * time;
+	}
+	else if('t' == what || 'T' == what){
+		float acceleration = arg1, velocity = arg2, time;
+		// t = a / v
+		return time = acceleration/velocity;
+	}
+}
+
+float acceleration1(float arg1,float arg2, float arg3, char what[2] = "a"){ // rate of change on velocity
+	if("a" == what || "A" == what){
+		float finalVelocity = arg1, initialVelocity = arg2, time = arg3, acceleration;
+		// a = vf - vi / t
+		return acceleration = (finalVelocity - initialVelocity)/time;
+	}
+	/*else if("vi" == what || "Vi" == what || "vI" == what || "VI" == what){
+		float acceleration = arg1, finalVelocity = arg2, time = arg3, initialVelocity;
+		// vi = (a - vf) * t
+		return initialVelocity = (acceleration - finalVelocity) * time;
+	}*/
+	else if("vf" == what || "Vf" == what || "vF" == what || "VF" == what){
+		float acceleration = arg1, initialVelocity = arg2,time = arg3, finalVelocity;
+		//vf = (a + vi) * t
+		return finalVelocity = (acceleration + initialVelocity) * time;
+	}
+	else if("t" == what || "T" == what){
+		float acceleration = arg1, finalVelocity = arg2,initialVelocity = arg3, time;
+		//t = a / (vf -vi)
+		return time = acceleration / (finalVelocity - initialVelocity);
+	}
+}
+
 float velocity(float arg1, float arg2, char what){ // Rate of change of displacement
 	if('v' == what || 'V' == what){
 		float speed = arg1, time = arg2, velocity;
