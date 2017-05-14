@@ -1,0 +1,50 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Energy = START
+float PotentialEnergy(float arg1, float arg2, float arg3 = 9.8, char what[2] = "PE"){
+	if("PE" == what || "pe" == what || "Pe" == what || "pE" == what){
+		float mass = arg1, height = arg2, acceleration = arg3, PotentialEnergy;
+		//P.E = mgh
+		return PotentialEnergy = mass*acceleration*height;
+	}
+}
+
+float KineticEnergy(float arg1, float arg2, char what[2] = "KE"){
+	if("KE" == what || "ke" == what || "Ke" == what || "kE" == what){
+		float mass = arg1, velocity  = arg2, KineticEnergy;
+		//K.E = (1/2)mv^2
+		return KineticEnergy = (mass * pow(velocity,2))/2;
+	}
+}
+// Energy = END
+//////////////////////////////////////////////////////////////
+
+// work = START
+float work(float arg1, float arg2, char what = 'w'){
+	if(what == 'W' || what == 'w'){
+		float force = arg1, direction = arg2, work;
+		return work = force * direction;
+	}
+	else if(what == 'F' || what == 'f'){
+		float work = arg1, direction = arg2, force;
+		return force = work / direction;
+	}
+	else if(what == 'D' || what == 'd'){
+		float work = arg1, force = arg2, direction;
+		return direction = work / force;
+	}
+}
+// work = END
+//////////////////////////////////////////////////////////////////////
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout << "Potential Energy =  " << PotentialEnergy(10,8,10) << " Joules" << endl;
+	cout << "Kinetic Energy =  " << KineticEnergy(10,5) << " Joules" << endl;
+	cout << "Kinetic Energy =  " << KineticEnergy(4,8) << " Joules" << endl;
+	return 0;
+}
