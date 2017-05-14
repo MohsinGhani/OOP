@@ -253,6 +253,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout<< "Acceleration = " << secondLawForce(8,2,'a') << endl;
 	cout<< "Mass = " << secondLawForce(15,3,'m') << endl;
 	
+	cout<< "firstLaw Force = " << firstLawForce(1500,18,0,5) << "N" << endl;
+	cout<< "firstLaw Force = " << firstLawForce(5,-5,10,5) << "N" << endl;
+	
 	cout << "a = "  << accelerationSpeed(0.25,0,100) << " m/s^2" << endl;
 	return 0;
 }
